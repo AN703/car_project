@@ -2,6 +2,8 @@
 차자보기 (Car Affordability Research, CAR)
 Flet + DuckDB 기반 GUI 애플리케이션
 """
+
+
 import os
 import flet as ft
 import duckdb
@@ -39,7 +41,7 @@ def main(page: ft.Page):
         if data:
             name, reg, ins, tax, fuel, maint, min_income = data
             cost_table.controls = [
-                ft.Row([ft.Text("등록비용", expand=1), ft.Text(f"{reg:,} 원/월", expand=1)]),
+                ft.Row([ft.Text("등록비용", expand=1), ft.Text(f"{reg:,} 원", expand=1)]),
                 ft.Row([ft.Text("보험료", expand=1), ft.Text(f"{ins:,} 원/월", expand=1)]),
                 ft.Row([ft.Text("자동차세", expand=1), ft.Text(f"{tax:,} 원/월", expand=1)]),
                 ft.Row([ft.Text("유류비", expand=1), ft.Text(f"{fuel:,} 원/월", expand=1)]),
@@ -102,7 +104,7 @@ def main(page: ft.Page):
                             content=ft.Column([
                                 thumb,
                                 ft.Text(name, size=13, weight=ft.FontWeight.BOLD, no_wrap=True),
-                                ft.Text(f"최소소득 {income//10000:,}만원" if income else "계산 필요", size=11, color="#555555"),
+                                ft.Text(f"최소소득 {income//10000:,}만원/년" if income else "계산 필요", size=11, color="#555555"),
                             ], tight=True)
                         )
                     )

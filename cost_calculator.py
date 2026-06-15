@@ -19,7 +19,7 @@ INCOME_RATIO = 0.15
 def calc_registration_fee(car_price: int) -> int:
     """등록비용(취득세 등) = 차량 정가의 7% (1회성 비용을 12개월로 환산)"""
     acquisition_tax = car_price * 0.07
-    return round(acquisition_tax / 12)
+    return round(acquisition_tax)
 
 
 def calc_insurance_fee(car_price: int) -> int:
@@ -76,7 +76,6 @@ def calc_min_annual_income(total_monthly_cost: int) -> int:
 
 
 if __name__ == "__main__":
-    # 예시: BMW 320i, 가솔린, 연간 12000km, 정가 5,500만원
     costs = calc_all_costs(55000000, "가솔린", 12000)
     income = calc_min_annual_income(costs["total_monthly_cost"])
     print(costs)
